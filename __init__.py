@@ -1,8 +1,7 @@
 # This addons allow the drag and dropping of 3D file format files into blender.
 
-
 bl_info = {
-    "name" : "DeepBlend",
+    "name" : "DragnDrop",
     "author" : "Rage",
     "description" : "",
     "blender" : (2, 80, 0),
@@ -13,15 +12,13 @@ bl_info = {
 }
 
 import bpy
-from . DDPanel import *
+from . DDPanel import DragDropPanel
 
-classes = (DD_PT_)
-
-register, unregister = bpy.utils.register_classes_factory(classes)
+register, unregister = bpy.utils.register_classes_factory(DragDropPanel)
 
 def register():
-    bpy.utils.register_class(DD_PT_)
-    # bpy.types.Scene.dragndrop = bpy.props.PointerProperty(type=MyAddonProperties)
+    bpy.utils.register_class(DragDropPanel)
+
 
 def unregister():
-    bpy.utils.unregister_class(DD_PT_)
+    bpy.utils.unregister_class(DragDropPanel)
