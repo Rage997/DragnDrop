@@ -1,10 +1,11 @@
 import bpy
+from . Window import MainWidget
 
 class DragDropPanel(bpy.types.Panel):
     bl_idname = "OBJECT_PT_DragDropPanel"
-    bl_label = "A panel"
-    bl_category = "Test panel"
-    bl_space_type = "FILE_BROWSER"
+    bl_label = "DragnDrop Panel"
+    bl_category = "DragnDrop"
+    bl_space_type = "VIEW_3D"
     bl_region_type = "UI"
 
     @classmethod
@@ -14,5 +15,7 @@ class DragDropPanel(bpy.types.Panel):
     def draw(self, context):
         layout = self.layout
         row = layout.row()
-        row.operator("view3d.cursor_center")
+        row.label(text='Test')
+        row.operator("file.drag_n_drop", text='dio')
 
+    

@@ -9,7 +9,7 @@ class MainWidget(QMainWindow):
         self.setWindowTitle("DragnDrop files")
         self.resize(480,480)
         self.setAcceptDrops(True)
-        self.start()
+        # self.start()
 
     def dragEnterEvent(self, event):
         if event.mimeData().hasUrls():
@@ -22,9 +22,8 @@ class MainWidget(QMainWindow):
         for f in files:
             print(f)
     
-    def start(self):
-        app = QApplication()
-        self.show() 
+    # def start(self):
+    #     self.show() 
           
 # app = QApplication(sys.argv)            
 # window = MainWidget()
