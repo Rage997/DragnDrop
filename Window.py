@@ -25,15 +25,19 @@ class MainWidget(QMainWindow):
 # Handling all formats in this function
     def load_file(self, f):
         filename, file_extension = os.path.splitext(f)
+        file_extension = file_extension.split('.')[1]
         print(filename, file_extension) 
         if file_extension == 'obj':
             bpy.ops.import_scene.obj(filepath=f)
         elif file_extension == 'fbx':
             bpy.ops.import_scene.fbx(filepath=f)
         elif file_extension == 'dae':
-            bpy.ops.import_scene.collada(filepath=f)
+            bpy.ops.wm.collada_import(filepath=f)
         elif file_extension == '3ds':
             bpy.ops.import_scene.x3d(filepath=f)
         elif file_extension == 'glb' or 'gltf':
+            print('called')
             bpy.ops.import_scene.gltf(filepath=f)
+        else:
+            print('Unrecognized format!')
         
