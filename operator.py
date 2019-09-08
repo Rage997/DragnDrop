@@ -16,4 +16,5 @@ class DragnDropOperator(bpy.types.Operator):
         app = QApplication(sys.argv)
         window = MainWidget()   
         window.show()
+        app.exec()
         return {'RUNNING_MODAL'}
