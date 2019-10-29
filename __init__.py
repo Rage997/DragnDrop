@@ -1,4 +1,10 @@
-# This addons allow the drag and dropping of 3D file format files into blender.
+''' 
+This addons allow the drag and dropping of 3D file format files into blender.
+Right now (Blender 2.80) there's neither a "drag event" in the Blender GUI
+or the possibility to extend the Blender GUI using PyQt5. 
+This addon, creates an external PyQt5 allowing to load files in Blender
+by dragging and dropping them into this window. 
+'''
 
 bl_info = {
     "name" : "DragnDrop",
@@ -12,19 +18,10 @@ bl_info = {
 }
 
 import bpy
-from . DDPanel import DragDropPanel
 from . operator import DragnDropOperator
 
-# classes = ("file.drag_n_drop")
-
-# register, unregister = bpy.utils.register_classes_factory(classes)
-
 def register():
-    bpy.utils.register_class(DragDropPanel)
     bpy.utils.register_class(DragnDropOperator)
-    # register()
 
 def unregister():
-    bpy.utils.unregister_class(DragDropPanel)
     bpy.utils.unregister_class(DragnDropOperator)
-    # unregister()
