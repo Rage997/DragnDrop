@@ -3,13 +3,13 @@ import bpy
 import sys
 import os
 
-class MainWidget(QMainWindow):
+class Window(QMainWindow):
     def __init__(self, parent=None):
-        super(MainWidget, self).__init__(parent)
+        super(Window, self).__init__(parent)
         self.setWindowTitle("DragnDrop files")
         self.resize(480,480)
         self.setAcceptDrops(True)
-        # self.start()
+        self.show()
 
     def dragEnterEvent(self, event):
         if event.mimeData().hasUrls():
@@ -20,6 +20,7 @@ class MainWidget(QMainWindow):
     def dropEvent(self, event):
         files = [(u.toLocalFile()) for u in event.mimeData().urls()]
         for f in files:
+            print(f)
             self.load_file(f)
 
 # Handling all formats in this function
